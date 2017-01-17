@@ -20,7 +20,6 @@ before_install:
 install:
   - sbt update
 script:
-  - cat /usr/lib/jvm/java-8-oracle/release
   - rm -rf tmp/nightly
   - mkdir -p tmp/nightly
   - cp .travis.sbt jvm/travis.sbt
@@ -28,8 +27,6 @@ script:
   - ./nightly.sh sbt_test tortoiseJVM fast
   - ./nightly.sh sbt_test tortoiseJVM language
   - ./nightly.sh sbt_test tortoiseJS test
-  - travis_wait 100 ./nightly.sh sbt_test tortoiseJVM crawl
-  - travis_wait 150 ./nightly.sh sbt_test netLogoWeb test
   - ./nightly.sh sbt_task tortoiseJVM/depend
 
 after_failure:

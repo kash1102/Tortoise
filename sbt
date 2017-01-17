@@ -4,7 +4,7 @@ CURR_DIR=`dirname $0`
 if [ `uname -s` = Linux ] ; then
   # use JAVA_HOME from Travis if there is one
   if [ -z "$TRAVIS" ] ; then
-    export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+    export JAVA_HOME=/usr
   fi
 else
   if [ `uname -s` = Darwin ] ; then
