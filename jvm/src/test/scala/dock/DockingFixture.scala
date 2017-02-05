@@ -91,6 +91,7 @@ class DockingFixture(name: String, nashorn: Nashorn) extends Fixture(name) {
             Dump.logoObject(
               evalJS(compiledJS))
           }
+          ()
         }
       case _: RuntimeError =>
         try {
@@ -168,6 +169,8 @@ class DockingFixture(name: String, nashorn: Nashorn) extends Fixture(name) {
       val nashornRNGState  = truncateDecimals(nashorn.eval("Random.save()").asInstanceOf[String])
 
       assert(headlessRNGState == nashornRNGState, "divergent RNG state")
+
+      ()
 
     }
   }
